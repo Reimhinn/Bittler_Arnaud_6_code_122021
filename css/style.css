@@ -44,7 +44,12 @@ h1 {
     font-size: 36px;
 }
 
-.photographer_section article img {
+.photographer_section article img, #profil-image {
     height: 200px;
     width: 200px;
+}
+
+.photograph-header {
+  display: flex;
+    justify-content: space-around;
 }
