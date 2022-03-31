@@ -29,6 +29,16 @@ let profilData = document.getElementById('profil-data')
 profilData.innerHTML = templatePhotographerProfil;
 
 document.getElementById("profil-image").src = picture;
+
+const photographMediasContainer = document.querySelector(".photograph-medias")
+
+medias.forEach((media) => {
+
+  const mediaModel = mediasFactory(medias);
+  const mediaDOM = mediaModel.getMediaDOM();
+  photographMediasContainer.appendChild(mediaDOM);
+
+})
 }
 
 
