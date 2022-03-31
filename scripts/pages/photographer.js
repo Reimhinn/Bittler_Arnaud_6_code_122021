@@ -34,7 +34,7 @@ const photographMediasContainer = document.querySelector(".photograph-medias")
 
 medias.forEach((media) => {
 
-  const mediaModel = mediasFactory(medias);
+  const mediaModel = mediasFactory(media);
   const mediaDOM = mediaModel.getMediaDOM();
   photographMediasContainer.appendChild(mediaDOM);
 

@@ -53,3 +53,13 @@ h1 {
   display: flex;
     justify-content: space-around;
 }
+
+.photograph-medias {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.photograph-medias article img {
+  height: 300px;
+  width: 300px;
+}

@@ -2,6 +2,8 @@ function mediasFactory(data) {
   const { id, photographerId, title, image, likes, date, price } = data;
 console.log("data", data)
 console.log("title", title)
+
+
   function getMediaDOM() {
 
     let picture = `assets/medias/${image}`
