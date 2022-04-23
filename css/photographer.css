@@ -6,6 +6,19 @@
     background-color: #FAFAFA;
     height: 300px;
     margin: 0 100px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.photograph-medias {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.photograph-medias article img {
+  height: 300px;
+  width: 300px;
+  object-fit: cover;
 }
 
 .contact_button {
@@ -31,6 +44,9 @@
     justify-content: space-between;
     padding: 35px;
     margin: auto;
+    position: fixed;
+    top: 50px;
+    left: 380px;
 }
 
 .modal header {
@@ -68,9 +84,44 @@ form div {
     margin-bottom: 26px;
 }
 
-form input {
+form input, textarea {
     width: 100%;
     height: 68px;
     border: none;
     border-radius: 5px;
+}
+
+textarea {
+  height: 170px;
+}
+
+.img-flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+article {
+  padding-left: 100px;
+}
+
+img, video {
+  cursor: pointer;
+}
+
+.price-window {
+    height: 52px;
+    width: 280px;
+    position: fixed;
+    bottom: 0;
+    right: 20px;
+    background-color: #D3573C;
+    border-radius: 4px;
+    font-size: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.carousel {
+  display: none;
 }

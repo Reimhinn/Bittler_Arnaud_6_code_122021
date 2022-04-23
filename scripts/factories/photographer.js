@@ -22,5 +22,5 @@ console.log("portrait", portrait)
 
         return (articlePhotographers);
     }
-    return { name, picture, getUserCardDOM }
+    return { name, picture, price, id, city, country, tagline, getUserCardDOM }
 }

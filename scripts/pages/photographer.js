@@ -15,20 +15,11 @@ async function getPhotographers() {
 }
 
 
+
 async function displayData (photographer, medias) {
 // destructuration de l'objet en variable //
 const { name, portrait, price, city, country, tagline } = photographer;
 const picture = `assets/photographers/${portrait}`
-
-// utilisation des variables pour implémenter l'html //
-let templatePhotographerProfil = `<h2 class="name">${name}</h2>
-<p class="location">${city}, ${country}</p>
-<p class="tagline">${tagline}</p>`
-
-let profilData = document.getElementById('profil-data')
-profilData.innerHTML = templatePhotographerProfil;
-
-document.getElementById("profil-image").src = picture;
 
 const photographMediasContainer = document.querySelector(".photograph-medias")
 
@@ -39,6 +30,32 @@ medias.forEach((media) => {
   photographMediasContainer.appendChild(mediaDOM);
 
 })
+
+// utilisation des variables pour implémenter l'html //
+const templatePhotographerProfil = `<h2 class="name">${name}</h2>
+<p class="location">${city}, ${country}</p>
+<p class="tagline">${tagline}</p>`
+
+const templatePriceWindow = `<span>${likesCount} <i class="fa-solid fa-heart"></i></span> <span>${price}€ / jour</span>`
+
+const profilData = document.getElementById('profil-data')
+profilData.innerHTML = templatePhotographerProfil;
+
+const priceWindow = document.querySelector('.price-window')
+priceWindow.innerHTML = templatePriceWindow;
+
+document.getElementById("profil-image").src = picture;
+
+const mediaContainer = document.querySelector(".media-container")
+mediaContainer.addEventListener("click", openCarousel)
+
+const carousel = document.querySelector(".carousel")
+
+function openCarousel() {
+  carousel.style.display = "block"
+  console.log("test carousel")
+}
+
 }
 
 

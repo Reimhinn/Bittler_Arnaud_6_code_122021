@@ -49,17 +49,4 @@ h1 {
     width: 200px;
 }
 
-.photograph-header {
-  display: flex;
-    justify-content: space-around;
-}
 
-.photograph-medias {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.photograph-medias article img {
-  height: 300px;
-  width: 300px;
-}

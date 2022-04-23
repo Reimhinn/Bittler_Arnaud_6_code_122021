@@ -5,13 +5,26 @@
     <meta charset="utf-8">
     <link rel="icon" type="image/png" href="assets/favicon.png">
     <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/e2a96e8e7c.js" crossorigin="anonymous"></script>
+    <!-- <script src="https://kit.fontawesome.com/f8ed3350bb.js" crossorigin="anonymous"></script> -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css"
+    integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
     <title>Fisheye - photographe </title>
   </head>
   <body>
     <header>
-      <img src="assets/images/logo.png" class="logo" />
+      <a href="index.html">
+        <img src="assets/images/logo.png" class="logo" />
+      </a>
     </header>
+
     <main id="main">
+
+      <div>
+        <button>
+
+        </button>
+      </div>
       <div class="photograph-header">
         <article id="profil-data"></article>
         <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
@@ -31,11 +44,25 @@
 					<div>
 						<label>Prénom</label>
 						<input type="text"/>
+            <label>Nom</label>
+						<input type="text"/>
+            <label>Email</label>
+						<input type="email"/>
+            <label>Votre message</label>
+						<textarea/></textarea>
 					</div>
           <button class="contact_button">Envoyer</button>
 				</form>
 			</div>
 		</div>
+    <div class="price-window">
+
+    </div>
+    <div class="carousel">
+
+    </div>
+
+
     <script src="/scripts/factories/medias.js"></script>
     <script src="/scripts/factories/photographer.js"></script>
     <script src="/scripts/utils/contactForm.js"></script>
