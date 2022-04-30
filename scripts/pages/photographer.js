@@ -46,15 +46,58 @@ priceWindow.innerHTML = templatePriceWindow;
 
 document.getElementById("profil-image").src = picture;
 
-const mediaContainer = document.querySelector(".media-container")
-mediaContainer.addEventListener("click", openCarousel)
+
+const mediaContainers = document.querySelectorAll(".media-container")
+
+
+// const mediaID = document.querySelectorAll("[data-id]")
+// console.log("test", mediaID)
+
+mediaContainers.forEach(container => {
+  // console.log("id:", container.dataset)
+  // const mediaIdArray = container.dataset
+  // console.log("mediaId", mediaIdArray
+  container.addEventListener("click", openCarousel)
+
+})
+
+
 
 const carousel = document.querySelector(".carousel")
+const carouselMediaContainer = document.querySelector(".carousel-media-container")
 
-function openCarousel() {
-  carousel.style.display = "block"
-  console.log("test carousel")
+function openCarousel(clickEvent) {
+  carousel.style.display = "flex"
+  const targetElement = clickEvent.target
+  const targetMediaID = targetElement.dataset.id
+  const targetMedia = medias.find(media => media.id == targetMediaID)
+
+  console.log("targetMedia", targetMedia)
+
+  templateCarouselImage = `
+    <img class="carousel-media" src="assets/medias/${targetMedia.image}" alt="">
+    <h2 class="carousel-caption">${targetMedia.title}</h2>`
+
+  templateCarouselVideo = `
+    <video controls class="carousel-media" src="assets/medias/${targetMedia.video}"></video>
+    <h2 class="carousel-caption">${targetMedia.title}</h2>`
+
+  const selectedTemplate = targetMedia.image
+    ? templateCarouselImage
+    : templateCarouselVideo;
+
+  carouselMediaContainer.innerHTML = selectedTemplate
+
+
+  // console.log("data-id", mediaID.dataset)
+
+  // const mediaID = medias.find(media => medias.id ===)
+  // carousel.innerHTML = $
 }
+
+const carouselClose = document.querySelector(".carousel-close").addEventListener("click", event => {
+  carousel.style.display = "none"
+})
 
 }
 
@@ -66,10 +109,10 @@ async function init() {
   // récupération des données //
 
   const photographers = await getPhotographers();
-  console.log('photographers:', photographers)
+  // console.log('photographers:', photographers)
 
   const medias = await getMedias();
-  console.log("medias", medias)
+  // console.log("medias", medias)
 
   // récupération de l'url //
   const urlData = window.location.search;
@@ -88,8 +131,8 @@ async function init() {
 
   displayData(foundPhotographer, foundMedias)
 
-  console.log("foundMedias", foundMedias)
-  console.log("foundphotographer", foundPhotographer)
+  // console.log("foundMedias", foundMedias)
+  // console.log("foundphotographer", foundPhotographer)
 
 }
 

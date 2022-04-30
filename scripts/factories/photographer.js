@@ -1,9 +1,9 @@
 function photographerFactory(data) {
     const { name, portrait, price, id, city, country, tagline } = data;
-console.log("data", data)
-console.log("portrait", portrait)
+// console.log("data", data)
+// console.log("portrait", portrait)
     const picture = `assets/photographers/${portrait}`;
-console.log("portrait", portrait)
+// console.log("portrait", portrait)
     function getUserCardDOM() {
 
             let articlePhotographers = document.createElement('article');
@@ -18,7 +18,7 @@ console.log("portrait", portrait)
 
             articlePhotographers.innerHTML = templatePhotographer;
 
-              console.log("artcicle", articlePhotographers)
+              // console.log("artcicle", articlePhotographers)
 
         return (articlePhotographers);
     }

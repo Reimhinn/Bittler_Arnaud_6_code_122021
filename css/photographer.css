@@ -124,4 +124,44 @@ img, video {
 
 .carousel {
   display: none;
+  position: fixed;
+  top: 50vh;
+  left: 50vw;
+  background-color: white;
+  border: solid black 1px;
+  align-items: center;
+  padding-top: 20px;
+  transform: translate(-50%, -50%);
+  max-width: 80vw;
+  max-height: 80vh;
+}
+
+.carousel-media {
+  min-height: 0;
+  object-fit: cover;
+}
+
+.carousel-media-container {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  align-self: stretch;
+}
+
+.carousel-arrow, .carousel-close {
+  font-size: 28px;
+  color: #901C1C;
+  margin: 20px;
+  cursor: pointer;
+}
+
+.carousel-caption {
+  color: #901C1C;
+  font-size: 16px;
+}
+
+.carousel-close {
+  position: absolute;
+  top: 0px;
+  right: 0px;
 }
