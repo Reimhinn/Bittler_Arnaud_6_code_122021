@@ -47,57 +47,83 @@ priceWindow.innerHTML = templatePriceWindow;
 document.getElementById("profil-image").src = picture;
 
 
+
 const mediaContainers = document.querySelectorAll(".media-container")
 
 
-// const mediaID = document.querySelectorAll("[data-id]")
-// console.log("test", mediaID)
+
 
 mediaContainers.forEach(container => {
-  // console.log("id:", container.dataset)
-  // const mediaIdArray = container.dataset
-  // console.log("mediaId", mediaIdArray
   container.addEventListener("click", openCarousel)
-
 })
-
 
 
 const carousel = document.querySelector(".carousel")
 const carouselMediaContainer = document.querySelector(".carousel-media-container")
 
-function openCarousel(clickEvent) {
-  carousel.style.display = "flex"
-  const targetElement = clickEvent.target
-  const targetMediaID = targetElement.dataset.id
-  const targetMedia = medias.find(media => media.id == targetMediaID)
 
-  console.log("targetMedia", targetMedia)
+
+
+
+
+const prevArrow = document.querySelector(".prev-arrow")
+const nextArrow = document.querySelector(".next-arrow")
+
+let mediaIndex = 0
+
+
+nextArrow.addEventListener("click", event => {
+  mediaIndex++;
+  if (mediaIndex > medias.length - 1) {
+    mediaIndex = 0;
+  }
+  showMedia(mediaIndex)
+})
+
+prevArrow.addEventListener("click", event => {
+  mediaIndex--;
+  if (mediaIndex < 0) {
+    mediaIndex = medias.length - 1;
+  }
+  showMedia(mediaIndex)
+})
+
+function showMedia(index) {
+  const media = medias[index]
 
   templateCarouselImage = `
-    <img class="carousel-media" src="assets/medias/${targetMedia.image}" alt="">
-    <h2 class="carousel-caption">${targetMedia.title}</h2>`
+    <img class="carousel-media" src="assets/medias/${media.image}" alt="">
+    <h2 class="carousel-caption">${media.title}</h2>`
 
   templateCarouselVideo = `
-    <video controls class="carousel-media" src="assets/medias/${targetMedia.video}"></video>
-    <h2 class="carousel-caption">${targetMedia.title}</h2>`
+    <video controls class="carousel-media" src="assets/medias/${media.video}"></video>
+    <h2 class="carousel-caption">${media.title}</h2>`
 
-  const selectedTemplate = targetMedia.image
+  const selectedTemplate = media.image
     ? templateCarouselImage
     : templateCarouselVideo;
 
   carouselMediaContainer.innerHTML = selectedTemplate
 
+}
 
-  // console.log("data-id", mediaID.dataset)
 
-  // const mediaID = medias.find(media => medias.id ===)
-  // carousel.innerHTML = $
+function openCarousel(clickEvent) {
+  carousel.style.display = "flex"
+  const targetElement = clickEvent.target
+  const targetMediaID = targetElement.dataset.id
+  mediaIndex = medias.findIndex(media => media.id == targetMediaID)
+
+
+  showMedia(mediaIndex)
+
+
 }
 
 const carouselClose = document.querySelector(".carousel-close").addEventListener("click", event => {
   carousel.style.display = "none"
 })
+
 
 }
 

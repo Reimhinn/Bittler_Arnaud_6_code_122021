@@ -1,4 +1,3 @@
-carousel medias
 faire le button de tri déroulant
 css
 faire les arias label
