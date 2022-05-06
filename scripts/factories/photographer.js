@@ -1,26 +1,70 @@
-function photographerFactory(data) {
-    const { name, portrait, price, id, city, country, tagline } = data;
-// console.log("data", data)
-// console.log("portrait", portrait)
-    const picture = `assets/photographers/${portrait}`;
-// console.log("portrait", portrait)
-    function getUserCardDOM() {
+function photographerFactory(photographer, medias = []) {
+  const {
+    name,
+    portrait,
+    price,
+    id,
+    city,
+    country,
+    tagline,
+  } = photographer;
 
-            let articlePhotographers = document.createElement('article');
-            let templatePhotographer =
-            `<a href="photographer.html?id=${id}">
-                <img src="${picture}">
-                <h2 class="name">${name}</h2>
-            </a>
-            <p class="location">${city}, ${country}</p>
-            <p class="tagline">${tagline}</p>
-            <p class="price">${price}€/jour</p>`
+  let likeCount = 0;
 
-            articlePhotographers.innerHTML = templatePhotographer;
+  medias.forEach((media) => {
+    likeCount += media.likes;
+  });
 
-              // console.log("artcicle", articlePhotographers)
+  function getPhotographerCardDOM() {
+    const photographerCardDOM = document.createElement('article');
 
-        return (articlePhotographers);
-    }
-    return { name, picture, price, id, city, country, tagline, getUserCardDOM }
+    const pictureUrl = `assets/photographers/${portrait}`;
+
+    const template = `
+      <a href="photographer.html?id=${id}">
+        <img src="${pictureUrl}">
+        <h2 class="name">${name}</h2>
+      </a>
+      <p class="location">${city}, ${country}</p>
+      <p class="tagline">${tagline}</p>
+      <p class="price">${price}€/jour</p>
+    `;
+
+    photographerCardDOM.innerHTML = template;
+    return photographerCardDOM;
+  }
+
+  function getPhotographerProfileDOM() {
+    const photographerProfileDOM = document.createElement('article');
+    photographerProfileDOM.id = 'profil-data';
+
+    const template = `
+      <h2 class="name">${name}</h2>
+      <p class="location">${city}, ${country}</p>
+      <p class="tagline">${tagline}</p>
+    `;
+
+    photographerProfileDOM.innerHTML = template;
+    return photographerProfileDOM;
+  }
+
+  function getPriceWindowDOM() {
+    const priceWindowDOM = document.createElement('div');
+    priceWindowDOM.classList.add('price-window');
+
+    const template = `
+      <span>${likeCount}<i class="fa-solid fa-heart"></i></span>
+      <span>${price}€ / jour</span>
+    `;
+
+     priceWindowDOM.innerHTML = template;
+     return priceWindowDOM;
+  }
+
+  return {
+    ...photographer,
+    getPhotographerCardDOM,
+    getPhotographerProfileDOM,
+    getPriceWindowDOM,
+  };
 }

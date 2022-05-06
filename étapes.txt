@@ -1,6 +1,9 @@
-faire le button de tri déroulant ?
+faire le button de tri déroulant
 formulaire conditions
+incrémentation likes au clic
+faire le quizz
+touches fléchées du carousel
 css
-faire les arias label
-check instructions
+faire les arias label et autres fonctionnalités d'accessibilité
 ranger et mettre commentaires
+check instructions
