@@ -26,7 +26,7 @@ async function displayData (photographer, medias) {
   const photographerModel = photographerFactory(photographer, medias);
   const photographerProfileDOM = photographerModel.getPhotographerProfileDOM();
   const priceWindowDOM = photographerModel.getPriceWindowDOM();
-  const mediaUrl = `assets/photographers/${mediaUrl}`
+  const mediaUrl = `assets/photographers/${photographer.portrait}`
 
   document.querySelector('#profil-data').replaceWith(photographerProfileDOM);
   document.querySelector('.price-window').replaceWith(priceWindowDOM);
@@ -98,9 +98,9 @@ async function init() {
   const id = parseInt(params.id, 10);
 
   const photographer = photographers.find(photographer => photographer.id === id);
-  const medias = medias.filter(media => media.photographerId === id);
+  const photographerMedias = medias.filter(media => media.photographerId === id);
 
-  displayData(photographer, medias);
+  displayData(photographer, photographerMedias);
 }
 
 init();
