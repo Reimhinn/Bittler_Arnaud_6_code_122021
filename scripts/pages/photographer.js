@@ -1,4 +1,6 @@
 // récupération des données //
+const filterSelect = document.querySelector(".filter-select")
+
 
 async function getMedias() {
   return fetch("./data/photographers.json").then(resp => resp.json()).then(data => {
@@ -21,7 +23,15 @@ async function displayData (photographer, medias) {
 const { name, portrait, price, city, country, tagline } = photographer;
 const picture = `assets/photographers/${portrait}`
 
+// console.log(photographerFactory(photographer))/
+const photographerData = photographerFactory(photographer)
+
+
+
 const photographMediasContainer = document.querySelector(".photograph-medias")
+
+
+
 
 medias.forEach((media) => {
 
@@ -31,12 +41,29 @@ medias.forEach((media) => {
 
 })
 
-// utilisation des variables pour implémenter l'html //
-const templatePhotographerProfil = `<h2 class="name">${name}</h2>
-<p class="location">${city}, ${country}</p>
-<p class="tagline">${tagline}</p>`
 
-const templatePriceWindow = `<span>${likesCount} <i class="fa-solid fa-heart"></i></span> <span>${price}€ / jour</span>`
+filterSelect.addEventListener("click", () => {
+  if (filterSelect.options[filterSelect.selectedIndex].value == "Title") {
+    medias.sort((a, b) => {return a.title.localeCompare(b.title)})
+    console.log(medias)
+
+    // medias.forEach((media) => {
+
+    //   mediaModel = mediasFactory(media);
+    //   mediaDOM = mediaModel.getMediaDOM();
+    //   photographMediasContainer.appendChild(mediaDOM);
+
+    // })
+ }
+})
+
+
+// utilisation des variables pour implémenter l'html //
+const templatePhotographerProfil = `<h2 class="name">${photographerData.name}</h2>
+<p class="location">${photographerData.city}, ${photographerData.country}</p>
+<p class="tagline">${photographerData.tagline}</p>`
+
+const templatePriceWindow = `<span>${likesCount} <i class="fa-solid fa-heart"></i></span> <span>${photographerData.price}€ / jour</span>`
 
 const profilData = document.getElementById('profil-data')
 profilData.innerHTML = templatePhotographerProfil;
@@ -88,6 +115,7 @@ prevArrow.addEventListener("click", event => {
   showMedia(mediaIndex)
 })
 
+
 function showMedia(index) {
   const media = medias[index]
 
@@ -119,13 +147,32 @@ function openCarousel(clickEvent) {
 
 
 }
+console.log("medias", medias)
 
 const carouselClose = document.querySelector(".carousel-close").addEventListener("click", event => {
   carousel.style.display = "none"
 })
 
 
+
+
+// if (filterSelect.options[filterSelect.selectedIndex].value == "Popularity") {
+//   likesCountArray.sort(function(a, b) {return b-a})
+//   console.log(likesCountArray)
+// }
+
+
+
+// for (i=0;i<=10;i++) {
+//   likesCountArray
+// }
+// medias.forEach(media => {
+//   mediaLike = medias.find(media => media.likes === likesCountArray)
+//   console.log(mediaLike)
+// });
+
 }
+
 
 
 
@@ -155,12 +202,17 @@ async function init() {
 
   const foundMedias = medias.filter(media => media.photographerId === id);
 
+
+
+
   displayData(foundPhotographer, foundMedias)
+
 
   // console.log("foundMedias", foundMedias)
   // console.log("foundphotographer", foundPhotographer)
 
 }
+
 
 
 

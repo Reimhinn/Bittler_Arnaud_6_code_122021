@@ -1,6 +1,6 @@
-faire le button de tri déroulant
+faire le button de tri déroulant ?
+formulaire conditions
 css
 faire les arias label
-utiliser le photographer factory pour le photographer diplay data
 check instructions
-ranger
+ranger et mettre commentaires

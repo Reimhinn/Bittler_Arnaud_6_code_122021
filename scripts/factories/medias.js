@@ -1,4 +1,5 @@
 let likesCount = 0
+let likesCountArray = []
 
 function mediasFactory(data) {
   const { id, photographerId, title, image, likes, date, price, video } = data;
@@ -9,6 +10,7 @@ function mediasFactory(data) {
 
 
 likesCount += likes
+likesCountArray.push(likes)
 
   function getMediaDOM() {
 
