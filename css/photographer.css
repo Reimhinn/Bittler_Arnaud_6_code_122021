@@ -21,6 +21,18 @@
   object-fit: cover;
 }
 
+.flex-likes {
+  display: flex;
+  align-items: center;
+  width: 41px;
+  justify-content: space-between;
+}
+
+.likes-heart {
+  color: #901C1C;
+  cursor: pointer;
+}
+
 .contact_button {
     font-size: 20px;
     font-weight: bold;

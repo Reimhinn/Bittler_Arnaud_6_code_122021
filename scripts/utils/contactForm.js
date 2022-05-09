@@ -1,9 +1,36 @@
+const modal = document.getElementById("contact_modal");
+
 function displayModal() {
-    const modal = document.getElementById("contact_modal");
 	modal.style.display = "block";
 }
 
 function closeModal() {
-    const modal = document.getElementById("contact_modal");
-    modal.style.display = "none";
+  modal.style.display = "none";
+}
+
+
+const validateButton = document.getElementById("send-button").addEventListener("click", validate)
+
+
+
+function validate() {
+
+  let lastname = document.querySelector('.lastname-input')
+  let firstname = document.querySelector('.firstname-input')
+  let email = document.querySelector('.email-input')
+  let message = document.querySelector('.message-input')
+
+  console.log(lastname.value.trim())
+  console.log(firstname.value.trim())
+  console.log(email.value.trim())
+  console.log(message.value.trim())
+
+  lastname.value = ""
+  firstname.value = ""
+  email.value = ""
+  message.value = ""
+
+  closeModal()
+
+
 }

@@ -28,6 +28,7 @@ async function displayData (photographer, medias) {
   const priceWindowDOM = photographerModel.getPriceWindowDOM();
   const mediaUrl = `assets/photographers/${photographer.portrait}`
 
+
   document.querySelector('#profil-data').replaceWith(photographerProfileDOM);
   document.querySelector('.price-window').replaceWith(priceWindowDOM);
   document.getElementById('profil-image').src = mediaUrl;
@@ -47,7 +48,7 @@ async function displayData (photographer, medias) {
   let mediaIndex = 0;
 
 
-  nextArrow.addEventListener('click', event => {
+  nextArrow.addEventListener('click', () => {
     mediaIndex++;
     if (mediaIndex > medias.length - 1) {
       mediaIndex = 0;
@@ -55,13 +56,37 @@ async function displayData (photographer, medias) {
     showMedia(mediaIndex);
   })
 
-  prevArrow.addEventListener('click', event => {
+  prevArrow.addEventListener('click', () => {
     mediaIndex--;
     if (mediaIndex < 0) {
       mediaIndex = medias.length - 1;
     }
     showMedia(mediaIndex);
+
   })
+
+
+  document.onkeydown = checkKey
+
+  function checkKey(event) {
+
+    if (event.keyCode == "37") {
+      prevArrow.click()
+    }
+    else if (event.keyCode == "39") {
+      nextArrow.click()
+    }
+  }
+
+  // document.querySelector(".likes-heart").addEventListener("click", (event) => {
+  //   target = event.target
+  //   photographerModel.likeCount++
+  //   return priceWindowDOM
+  //   console.log("photomodel", photographerModel)
+  //   console.log(priceWindowDOM)
+  //   // photographerModel.increaseLikeCount(target)
+  //   // console.log("target", target)
+  // })
 
   function showMedia(index) {
     const media = medias[index];
@@ -85,6 +110,9 @@ async function displayData (photographer, medias) {
   document.querySelector('.carousel-close').addEventListener('click', event => {
     carousel.style.display = 'none';
   });
+
+
+
 }
 
 async function init() {
@@ -102,5 +130,8 @@ async function init() {
 
   displayData(photographer, photographerMedias);
 }
+
+
+
 
 init();

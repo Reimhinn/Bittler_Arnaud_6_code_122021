@@ -19,7 +19,7 @@ function mediaFactory(media) {
       <img data-id=${id} class="media-container" src="${mediaUrl}">
       <div class="img-flex">
         <p>${title}</p>
-        <p>${likes}</p>
+        <span class="flex-likes"><p>${likes}</p><i class="fa-solid fa-heart likes-heart"></i></span>
       </div>
     `;
 
@@ -29,7 +29,7 @@ function mediaFactory(media) {
       </video>
       <div class="img-flex">
         <p>${title}</p>
-        <p>${likes}</p>
+        <span class="flex-likes"><p>${likes}</p><i class="fa-solid fa-heart likes-heart"></i></span>
       </div>
     `;
 
