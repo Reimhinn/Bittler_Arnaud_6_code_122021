@@ -7,14 +7,7 @@ async function displayData (photographer, medias) {
     photographMediasContainer.appendChild(mediaCardDOM);
   })
 
-  const filterSelect = document.querySelector('.filter-select')
 
-  filterSelect.addEventListener('click', () => {
-    if (filterSelect.options[filterSelect.selectedIndex].value == 'Title') {
-      medias.sort((a, b) => {return a.title.localeCompare(b.title)});
-      console.log('sorted medias', medias);
-  }
-  })
 
 
   // if (filterSelect.options[filterSelect.selectedIndex].value == "Popularity") {
@@ -32,6 +25,16 @@ async function displayData (photographer, medias) {
   document.querySelector('#profil-data').replaceWith(photographerProfileDOM);
   document.querySelector('.price-window').replaceWith(priceWindowDOM);
   document.getElementById('profil-image').src = mediaUrl;
+
+    const filterSelect = document.querySelector('.filter-select')
+
+  filterSelect.addEventListener('click', () => {
+    if (filterSelect.options[filterSelect.selectedIndex].value == 'Title') {
+      medias.sort((a, b) => {return a.title.localeCompare(b.title)});
+      console.log('sorted medias', mediaModel);
+
+  }
+  })
 
   const mediaContainers = document.querySelectorAll('.media-container');
 

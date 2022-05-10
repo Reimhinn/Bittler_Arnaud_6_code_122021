@@ -53,7 +53,7 @@ function photographerFactory(photographer, medias = []) {
     priceWindowDOM.classList.add('price-window');
 
     const template = `
-      <span><p class="likeCount">${likeCount}</p><i class="fa-solid fa-heart"></i></span>
+      <span class="flex-likes-heart"><p class="likeCount">${likeCount}</p><i class="fa-solid fa-heart"></i></span>
       <span>${price}€ / jour</span>
     `;
 

@@ -28,6 +28,13 @@
   justify-content: space-between;
 }
 
+.flex-likes-heart {
+  display: flex;
+  align-items: center;
+  width: 75px;
+  justify-content: space-around;
+}
+
 .likes-heart {
   color: #901C1C;
   cursor: pointer;
