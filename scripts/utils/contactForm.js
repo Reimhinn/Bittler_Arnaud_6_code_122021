@@ -9,11 +9,9 @@ function closeModal() {
 }
 
 
-const validateButton = document.getElementById("send-button").addEventListener("click", validate)
+const validateButton = document.getElementById("modal-form").addEventListener("submit", e => {
 
-
-
-function validate() {
+  e.preventDefault()
 
   let lastname = document.querySelector('.lastname-input')
   let firstname = document.querySelector('.firstname-input')
@@ -31,6 +29,4 @@ function validate() {
   message.value = ""
 
   closeModal()
-
-
-}
+})

@@ -26,10 +26,10 @@
         <img id="profil-image">
       </div>
       <div class="filter">
-       <label for="filter-select">Trier par</label>
+       <label class="filter-label" for="filter-select">Trier par</label>
         <select class="filter-select">
-          <option value="Popularity" selected >Popularité</option>
-          <option value="Date">Date</option>
+          <option value="Popularity">Popularité</option>
+          <option value="Date" selected >Date</option>
           <option value="Title">Titre</option>
         </select>
       </div>
@@ -43,7 +43,7 @@
           <h2>Contactez-moi</h2>
           <img src="assets/icons/close.svg" onclick="closeModal()" />
         </header>
-				<form>
+				<form id="modal-form">
 					<div>
 						<label>Prénom</label>
 						<input class="lastname-input" type="text"/>
@@ -54,7 +54,7 @@
             <label>Votre message</label>
 						<textarea/ class="message-input"></textarea>
 					</div>
-          <button type="button" class="contact_button" id="send-button">Envoyer</button>
+          <button type="submit" class="contact_button" id="send-button">Envoyer</button>
 
 				</form>
 

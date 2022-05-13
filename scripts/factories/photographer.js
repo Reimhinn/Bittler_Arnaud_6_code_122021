@@ -61,6 +61,7 @@ function photographerFactory(photographer, medias = []) {
      return priceWindowDOM;
   }
 
+
   return {
     ...photographer,
     getPhotographerCardDOM,

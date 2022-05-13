@@ -8,6 +8,8 @@
     margin: 0 100px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    width: 79%;
 }
 
 .photograph-medias {
@@ -119,6 +121,11 @@ textarea {
   padding-left: 100px;
 }
 
+.filter-label {
+  font-weight: bold;
+  margin-right: 20px;
+}
+
 .filter-select {
   font-size: 14px;
   font-weight: bold;
@@ -141,7 +148,7 @@ article {
   padding-left: 100px;
 }
 
-img, video {
+.media-container {
   cursor: pointer;
 }
 

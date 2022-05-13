@@ -18,8 +18,11 @@ function mediaFactory(media) {
     const pictureTemplate = `
       <img data-id=${id} class="media-container" src="${mediaUrl}">
       <div class="img-flex">
-        <p>${title}</p>
-        <span class="flex-likes"><p>${likes}</p><i class="fa-solid fa-heart likes-heart"></i></span>
+        <p class="media-title">${title}</p>
+        <span class="flex-likes">
+          <p>${likes}</p>
+          <i data-id=${id} class="fa-solid fa-heart likes-heart"></i>
+        </span>
       </div>
     `;
 
@@ -28,8 +31,11 @@ function mediaFactory(media) {
         <source src="${mediaUrl}" type="video/webm">
       </video>
       <div class="img-flex">
-        <p>${title}</p>
-        <span class="flex-likes"><p>${likes}</p><i class="fa-solid fa-heart likes-heart"></i></span>
+        <p class="media-title">${title}</p>
+        <span class="flex-likes">
+          <p>${likes}</p>
+          <i data-id=${id} class="fa-solid fa-heart likes-heart"></i>
+        </span>
       </div>
     `;
 

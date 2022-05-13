@@ -1,24 +1,43 @@
 async function displayData (photographer, medias) {
   const photographMediasContainer = document.querySelector('.photograph-medias')
 
-  medias.forEach((media) => {
-    const mediaModel = mediaFactory(media);
-    const mediaCardDOM = mediaModel.getMediaCardDOM();
-    photographMediasContainer.appendChild(mediaCardDOM);
-  })
+  function showMedias() {
+    photographMediasContainer.innerHTML = ""
 
 
+    medias.forEach((media) => {
+      const mediaModel = mediaFactory(media);
+      const mediaCardDOM = mediaModel.getMediaCardDOM();
+      photographMediasContainer.appendChild(mediaCardDOM);
+
+    })
+
+    const likesHeart = document.querySelectorAll(".likes-heart")
+
+    likesHeart.forEach(heart => {
+      heart.addEventListener("click", (event) => {
+        let targetId = event.target.dataset.id
+        let targetMedia = medias.find(media => media.id == targetId)
+        console.log(targetMedia)
+        targetMedia.likes++;
+        photographerModel = photographerFactory(photographer, medias);
+        priceWindowDOM = photographerModel.getPriceWindowDOM();
 
 
-  // if (filterSelect.options[filterSelect.selectedIndex].value == "Popularity") {
-  //   likesCountArray.sort(function(a, b) {return b-a})
-  //   console.log(likesCountArray)
-  // }
+        document.querySelector('.price-window').replaceWith(priceWindowDOM);
+        showMedias()
 
+      })
+    })
+  }
 
-  const photographerModel = photographerFactory(photographer, medias);
+  showMedias()
+
+console.log(medias)
+
+  let photographerModel = photographerFactory(photographer, medias);
   const photographerProfileDOM = photographerModel.getPhotographerProfileDOM();
-  const priceWindowDOM = photographerModel.getPriceWindowDOM();
+  let priceWindowDOM = photographerModel.getPriceWindowDOM();
   const mediaUrl = `assets/photographers/${photographer.portrait}`
 
 
@@ -28,13 +47,36 @@ async function displayData (photographer, medias) {
 
     const filterSelect = document.querySelector('.filter-select')
 
-  filterSelect.addEventListener('click', () => {
-    if (filterSelect.options[filterSelect.selectedIndex].value == 'Title') {
-      medias.sort((a, b) => {return a.title.localeCompare(b.title)});
-      console.log('sorted medias', mediaModel);
+    function sortByPopularity() {
+      medias.sort((a, b) => b.likes - a.likes)
+    }
 
+    function sortByTitle() {
+      medias.sort((a, b) => a.title.localeCompare(b.title));
+    }
+
+    function sortByDate() {
+      medias.sort((a, b) => a.date.localeCompare(b.date))
+      console.log(medias)
+    }
+
+
+  filterSelect.addEventListener('change', (event) => {
+    switch (event.target.value) {
+    case "Title" :
+      sortByTitle()
+      showMedias()
+      break;
+    case "Date" :
+      sortByDate()
+      showMedias()
+      break;
+    case "Popularity" :
+      sortByPopularity()
+      showMedias()
   }
-  })
+})
+
 
   const mediaContainers = document.querySelectorAll('.media-container');
 
@@ -69,8 +111,6 @@ async function displayData (photographer, medias) {
   })
 
 
-  document.onkeydown = checkKey
-
   function checkKey(event) {
 
     if (event.keyCode == "37") {
@@ -81,15 +121,8 @@ async function displayData (photographer, medias) {
     }
   }
 
-  // document.querySelector(".likes-heart").addEventListener("click", (event) => {
-  //   target = event.target
-  //   photographerModel.likeCount++
-  //   return priceWindowDOM
-  //   console.log("photomodel", photographerModel)
-  //   console.log(priceWindowDOM)
-  //   // photographerModel.increaseLikeCount(target)
-  //   // console.log("target", target)
-  // })
+
+
 
   function showMedia(index) {
     const media = medias[index];
@@ -113,7 +146,6 @@ async function displayData (photographer, medias) {
   document.querySelector('.carousel-close').addEventListener('click', event => {
     carousel.style.display = 'none';
   });
-
 
 
 }

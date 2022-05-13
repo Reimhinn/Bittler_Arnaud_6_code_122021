@@ -1,6 +1,3 @@
-faire le button de tri déroulant
-incrémentation likes au clic
-css
-faire les arias label et autres fonctionnalités d'accessibilité
+faire les arias label et autres fonctionnalités d'accessibilité + sémantique
 ranger et mettre commentaires
 check instructions
