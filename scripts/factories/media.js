@@ -1,19 +1,10 @@
-function mediaFactory(media) {
-  const {
-    id,
-    photographerId,
-    title,
-    image,
-    likes,
-    date,
-    price,
-    video,
-  } = media;
+function mediaFactory (media) {
+  const { id, photographerId, title, image, likes, date, price, video } = media
 
-  function getMediaCardDOM() {
-    const mediaCardDOM = document.createElement('article');
+  function getMediaCardDOM () {
+    const mediaCardDOM = document.createElement('article')
 
-    const mediaUrl = `assets/medias/${image || video}`;
+    const mediaUrl = `assets/medias/${image || video}`
 
     const pictureTemplate = `
       <img data-id=${id} class="media-container" src="${mediaUrl}">
@@ -24,7 +15,7 @@ function mediaFactory(media) {
           <i data-id=${id} class="fa-solid fa-heart likes-heart"></i>
         </span>
       </div>
-    `;
+    `
 
     const videoTemplate = `
       <video data-id=${id} class="media-container" width="300" height="300">
@@ -37,21 +28,19 @@ function mediaFactory(media) {
           <i data-id=${id} class="fa-solid fa-heart likes-heart"></i>
         </span>
       </div>
-    `;
+    `
 
-    const mediaTemplate = image
-      ? pictureTemplate
-      : videoTemplate;
+    const mediaTemplate = image ? pictureTemplate : videoTemplate
 
-    mediaCardDOM.innerHTML = mediaTemplate;
-    return mediaCardDOM;
+    mediaCardDOM.innerHTML = mediaTemplate
+    return mediaCardDOM
   }
 
-  function getMediaCarouselDOM() {
-    const mediaCarouselDOM = document.createElement('div');
-    mediaCarouselDOM.classList.add("carousel-media-container");
+  function getMediaCarouselDOM () {
+    const mediaCarouselDOM = document.createElement('div')
+    mediaCarouselDOM.classList.add('carousel-media-container')
 
-    const mediaUrl = `assets/medias/${image || video}`;
+    const mediaUrl = `assets/medias/${image || video}`
 
     pictureTemplate = `
       <img class="carousel-media" src="${mediaUrl}" alt="">
@@ -61,17 +50,15 @@ function mediaFactory(media) {
       <video controls class="carousel-media" src="${mediaUrl}"></video>
       <h2 class="carousel-caption">${title}</h2>`
 
-    const selectedTemplate = image
-      ? pictureTemplate
-      : videoTemplate;
+    const selectedTemplate = image ? pictureTemplate : videoTemplate
 
-    mediaCarouselDOM.innerHTML = selectedTemplate;
-    return mediaCarouselDOM;
+    mediaCarouselDOM.innerHTML = selectedTemplate
+    return mediaCarouselDOM
   }
 
   return {
     ...media,
     getMediaCardDOM,
-    getMediaCarouselDOM,
-  };
+    getMediaCarouselDOM
+  }
 }

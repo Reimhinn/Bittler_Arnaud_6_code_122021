@@ -14,7 +14,7 @@
   <body>
     <header>
       <a href="index.html">
-        <img src="assets/images/logo.png" class="logo" />
+        <img src="assets/images/logo.png" class="logo" alt="Fisheye Home Page" />
       </a>
     </header>
 
@@ -45,14 +45,24 @@
         </header>
 				<form id="modal-form">
 					<div>
-						<label>Prénom</label>
-						<input class="lastname-input" type="text"/>
-            <label>Nom</label>
-						<input class="firstname-input" type="text"/>
-            <label>Email</label>
-						<input class="email-input" type="email"/>
+            <div>
+              <label>Prénom</label>
+              <input placeholder="Prénom" name="lastname" class="lastname-input inputs" type="text"/>
+              <span class="error-message"></span>
+            </div>
+            <div>
+              <label>Nom</label>
+              <input placeholder="Nom" name="firstname" class="firstname-input inputs" type="text"/>
+              <span class="error-message"></span>
+            </div>
+            <div>
+              <label>Email</label>
+              <input placeholder="Email" name="email" class="email-input inputs" type="email"/>
+              <span class="error-message"></span>
+            </div>
             <label>Votre message</label>
-						<textarea/ class="message-input"></textarea>
+						<textarea/ placeholder="Votre message"class="message-input inputs"></textarea>
+
 					</div>
           <button type="submit" class="contact_button" id="send-button">Envoyer</button>
 

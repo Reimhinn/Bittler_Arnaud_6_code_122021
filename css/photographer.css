@@ -43,16 +43,31 @@
 }
 
 .contact_button {
-    font-size: 20px;
-    font-weight: bold;
-    color: white;
-    padding: 11px;
-    width: 170px;
-    height: 70px;
-    border: none;
-    background-color: #901C1C;
-    border-radius: 5px;
-    cursor: pointer;
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  padding: 11px;
+  width: 170px;
+  height: 70px;
+  border: none;
+  background-color: #901C1C;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.contact_button:hover, .contact_button:focus {
+  background-color: #D3573C;
+  color: black;
+}
+
+.inputs {
+  font-size: 25px;
+}
+
+.inputs::placeholder {
+  color: #525252;
+  opacity: 0.4;
 }
 
 .modal {
@@ -114,6 +129,11 @@ form input, textarea {
 
 textarea {
   height: 170px;
+}
+
+.error-message {
+color: #901C1C;
+font-weight: bold;
 }
 
 .filter {

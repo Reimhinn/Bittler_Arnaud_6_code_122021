@@ -1,3 +1,6 @@
-faire les arias label et autres fonctionnalités d'accessibilité + sémantique
+vérifier toutes la maquette
+modifier toute la sémantique et les indentations
+faire les arias label, les alt et vérifier que le site fonctionne au clavier + check
 ranger et mettre commentaires
-check instructions
+eslint check
+check instructions et w3c
