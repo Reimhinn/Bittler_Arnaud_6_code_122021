@@ -1,3 +1,6 @@
+import { getMedias, getPhotographers } from '../fetch'
+import { mediaFactory, photographerFactory } from '../factories'
+
 async function displayData (photographer, medias) {
   const photographMediasContainer = document.querySelector('.photograph-medias')
 

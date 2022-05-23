@@ -1,4 +1,4 @@
-function photographerFactory (photographer, medias = []) {
+export function photographerFactory (photographer, medias = []) {
   const { name, portrait, price, id, city, country, tagline } = photographer
 
   let likeCount = 0

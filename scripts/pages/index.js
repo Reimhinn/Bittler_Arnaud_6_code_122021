@@ -1,3 +1,6 @@
+import { getMedias, getPhotographers } from '../fetch'
+import { photographerFactory } from '../factories'
+
 // et bien retourner le tableau photographers seulement une fois
 
 async function displayData (photographers) {

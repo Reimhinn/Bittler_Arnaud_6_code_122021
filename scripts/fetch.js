@@ -15,3 +15,5 @@ async function getPhotographers () {
       return photographers
     })
 }
+
+export { getMedias, getPhotographers }
