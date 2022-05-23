@@ -85,6 +85,9 @@ async function displayData (photographer, medias) {
 
   const prevArrow = document.querySelector('.prev-arrow')
   const nextArrow = document.querySelector('.next-arrow')
+  document.querySelector('.carousel-close').addEventListener('click', () => {
+    carousel.style.display = 'none'
+  })
 
   let mediaIndex = 0
 
@@ -105,10 +108,12 @@ async function displayData (photographer, medias) {
   })
 
   document.addEventListener('keydown', event => {
-    if (event.keyCode === '37') {
+    if (event.keyCode === 37) {
       prevArrow.click()
-    } else if (event.keyCode === '39') {
+    } else if (event.keyCode === 39) {
       nextArrow.click()
+    } else if (event.key === 'Escape') {
+      carousel.style.display = 'none'
     }
   })
 
@@ -132,10 +137,6 @@ async function displayData (photographer, medias) {
 
     showMedia(mediaIndex)
   }
-
-  document.querySelector('.carousel-close').addEventListener('click', event => {
-    carousel.style.display = 'none'
-  })
 }
 
 async function init () {

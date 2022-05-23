@@ -41,7 +41,7 @@
 			<div class="modal">
 				<header>
           <h2>Contactez-moi</h2>
-          <img src="assets/icons/close.svg" onclick="closeModal()" />
+          <img class="modal-cross" src="assets/icons/close.svg" onclick="closeModal()" />
         </header>
 				<form id="modal-form">
 					<div>
@@ -60,8 +60,11 @@
               <input placeholder="Email" name="email" class="email-input inputs" type="email"/>
               <span class="error-message"></span>
             </div>
-            <label>Votre message</label>
-						<textarea/ placeholder="Votre message"class="message-input inputs"></textarea>
+            <div>
+              <label>Votre message</label>
+              <textarea/ placeholder="Votre message"class="message-input inputs"></textarea>
+              <span class="error-message"></span>
+            </div>
 
 					</div>
           <button type="submit" class="contact_button" id="send-button">Envoyer</button>

@@ -96,6 +96,12 @@ function checkForError () {
   } else {
     setSuccess(email)
   }
+
+  if (messageValue === '') {
+    setError(message, 'Vous ne devez pas laisser le champ vide')
+  } else {
+    setSuccess(message)
+  }
 }
 
 function setError (input, message) {
@@ -116,3 +122,9 @@ function setSuccess (input) {
 function isEmail (email) {
   return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)
 }
+
+document.addEventListener('keydown', event => {
+  if (event.key === 'Escape') {
+    closeModal()
+  }
+})

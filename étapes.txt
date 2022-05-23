@@ -1,6 +1,6 @@
-vérifier toutes la maquette
+vérifier toutes la maquette :
+- mettre le nom après contactez moi
 modifier toute la sémantique et les indentations
 faire les arias label, les alt et vérifier que le site fonctionne au clavier + check
 ranger et mettre commentaires
-eslint check
 check instructions et w3c
