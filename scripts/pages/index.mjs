@@ -1,4 +1,4 @@
-import { getPhotographers } from '../fetch.js'
+import { getPhotographers } from '../fetch.mjs'
 import { photographerFactory } from '../factories/photographer.mjs'
 
 // et bien retourner le tableau photographers seulement une fois

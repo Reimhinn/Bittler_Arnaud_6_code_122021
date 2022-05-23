@@ -19,7 +19,7 @@ async function displayData (photographer, medias) {
     likesHeart.forEach(heart => {
       heart.addEventListener('click', event => {
         const targetId = event.target.dataset.id
-        const targetMedia = medias.find(media => media.id === targetId)
+        const targetMedia = medias.find(media => media.id == targetId)
         console.log(targetMedia)
         targetMedia.likes++
         photographerModel = photographerFactory(photographer, medias)
@@ -82,9 +82,6 @@ async function displayData (photographer, medias) {
   })
 
   const carousel = document.querySelector('.carousel')
-  // const carouselMediaContainer = document.querySelector(
-  //   '.carousel-media-container'
-  // )
 
   const prevArrow = document.querySelector('.prev-arrow')
   const nextArrow = document.querySelector('.next-arrow')
@@ -131,7 +128,7 @@ async function displayData (photographer, medias) {
     carousel.style.display = 'flex'
     const targetElement = clickEvent.target
     const targetMediaID = targetElement.dataset.id
-    mediaIndex = medias.findIndex(media => media.id === targetMediaID)
+    mediaIndex = medias.findIndex(media => media.id == targetMediaID)
 
     showMedia(mediaIndex)
   }
