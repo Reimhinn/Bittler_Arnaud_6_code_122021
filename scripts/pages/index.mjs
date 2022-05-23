@@ -1,5 +1,5 @@
-import { getMedias, getPhotographers } from '../fetch'
-import { photographerFactory } from '../factories'
+import { getPhotographers } from '../fetch.js'
+import { photographerFactory } from '../factories/photographer.mjs'
 
 // et bien retourner le tableau photographers seulement une fois
 

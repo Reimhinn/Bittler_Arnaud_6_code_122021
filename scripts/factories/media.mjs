@@ -1,6 +1,6 @@
 
 export function mediaFactory (media) {
-  const { id, photographerId, title, image, likes, date, price, video } = media
+  const { id, title, image, likes, video } = media
 
   function getMediaCardDOM () {
     const mediaCardDOM = document.createElement('article')
@@ -43,11 +43,11 @@ export function mediaFactory (media) {
 
     const mediaUrl = `assets/medias/${image || video}`
 
-    pictureTemplate = `
+    const pictureTemplate = `
       <img class="carousel-media" src="${mediaUrl}" alt="">
       <h2 class="carousel-caption">${title}</h2>`
 
-    videoTemplate = `
+    const videoTemplate = `
       <video controls class="carousel-media" src="${mediaUrl}"></video>
       <h2 class="carousel-caption">${title}</h2>`
 

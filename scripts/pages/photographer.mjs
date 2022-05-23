@@ -1,5 +1,6 @@
-import { getMedias, getPhotographers } from '../fetch'
-import { mediaFactory, photographerFactory } from '../factories'
+import { getMedias, getPhotographers } from '../fetch.mjs'
+import { photographerFactory } from '../factories/photographer.mjs'
+import { mediaFactory } from '../factories/media.mjs'
 
 async function displayData (photographer, medias) {
   const photographMediasContainer = document.querySelector('.photograph-medias')
@@ -18,7 +19,7 @@ async function displayData (photographer, medias) {
     likesHeart.forEach(heart => {
       heart.addEventListener('click', event => {
         const targetId = event.target.dataset.id
-        const targetMedia = medias.find(media => media.id == targetId)
+        const targetMedia = medias.find(media => media.id === targetId)
         console.log(targetMedia)
         targetMedia.likes++
         photographerModel = photographerFactory(photographer, medias)
@@ -81,9 +82,9 @@ async function displayData (photographer, medias) {
   })
 
   const carousel = document.querySelector('.carousel')
-  const carouselMediaContainer = document.querySelector(
-    '.carousel-media-container'
-  )
+  // const carouselMediaContainer = document.querySelector(
+  //   '.carousel-media-container'
+  // )
 
   const prevArrow = document.querySelector('.prev-arrow')
   const nextArrow = document.querySelector('.next-arrow')
@@ -106,18 +107,19 @@ async function displayData (photographer, medias) {
     showMedia(mediaIndex)
   })
 
-  function checkKey (event) {
+  document.addEventListener('keydown', event => {
     if (event.keyCode === '37') {
       prevArrow.click()
     } else if (event.keyCode === '39') {
       nextArrow.click()
     }
-  }
+  })
 
   function showMedia (index) {
     const media = medias[index]
 
     const mediaModel = mediaFactory(media)
+
     const mediaCarouselDOM = mediaModel.getMediaCarouselDOM()
 
     document
@@ -129,7 +131,7 @@ async function displayData (photographer, medias) {
     carousel.style.display = 'flex'
     const targetElement = clickEvent.target
     const targetMediaID = targetElement.dataset.id
-    mediaIndex = medias.findIndex(media => media.id == targetMediaID)
+    mediaIndex = medias.findIndex(media => media.id === targetMediaID)
 
     showMedia(mediaIndex)
   }
@@ -142,7 +144,6 @@ async function displayData (photographer, medias) {
 async function init () {
   const photographers = await getPhotographers()
   const medias = await getMedias()
-
   const urlData = window.location.search
   const urlParams = new URLSearchParams(urlData)
   const params = Object.fromEntries(urlParams)
@@ -153,7 +154,6 @@ async function init () {
     photographer => photographer.id === id
   )
   const photographerMedias = medias.filter(media => media.photographerId === id)
-
   displayData(photographer, photographerMedias)
 }
 

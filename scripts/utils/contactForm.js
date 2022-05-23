@@ -1,8 +1,8 @@
 const modal = document.getElementById('contact_modal')
 
-function displayModal () {
+document.querySelector('.contact_button').addEventListener('click', () => {
   modal.style.display = 'block'
-}
+})
 
 function closeModal () {
   modal.style.display = 'none'
@@ -65,7 +65,7 @@ function checkForError () {
     setError(firstName, 'Ce champ necessite au minimum 2 caractères')
   } else {
     if (
-      firstNameValue.match(/([A-Za-z]{2,20})/gm)[0].length ==
+      firstNameValue.match(/([A-Za-z]{2,20})/gm)[0].length ===
       firstNameValue.length
     ) {
       setSuccess(firstName)
@@ -80,7 +80,7 @@ function checkForError () {
     setError(lastName, 'Ce champ necessite au minimum 2 caractères')
   } else {
     if (
-      lastNameValue.match(/([A-Za-z]{2,20})/gm)[0].length ==
+      lastNameValue.match(/([A-Za-z]{2,20})/gm)[0].length ===
       lastNameValue.length
     ) {
       setSuccess(lastName)
