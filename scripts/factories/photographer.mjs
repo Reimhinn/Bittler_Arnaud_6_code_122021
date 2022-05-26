@@ -13,7 +13,7 @@ export function photographerFactory (photographer, medias = []) {
     const pictureUrl = `assets/photographers/${portrait}`
 
     const template = `
-      <a role="link" href="photographer.html?id=${id}">
+      <a role="link" href="../photographer.html?id=${id}">
         <img role="image" aria-label="${name}" src="${pictureUrl}">
         <h2 aria-label="${name}" class="name">${name}</h2>
       </a>
