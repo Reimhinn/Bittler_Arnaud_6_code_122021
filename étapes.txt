@@ -1,6 +1,5 @@
-vérifier toutes la maquette :
-- mettre le nom après contactez moi
-modifier toute la sémantique et les indentations
-faire les arias label, les alt et vérifier que le site fonctionne au clavier + check
-ranger et mettre commentaires
+vérifier toute la maquette :
+- mettre les arias label et alt
+
+check accessibilité
 check instructions et w3c

@@ -13,13 +13,13 @@ export function photographerFactory (photographer, medias = []) {
     const pictureUrl = `assets/photographers/${portrait}`
 
     const template = `
-      <a href="photographer.html?id=${id}">
-        <img src="${pictureUrl}">
-        <h2 class="name">${name}</h2>
+      <a role="link" href="photographer.html?id=${id}">
+        <img role="image" aria-label="${name}" src="${pictureUrl}">
+        <h2 aria-label="${name}" class="name">${name}</h2>
       </a>
-      <p class="location">${city}, ${country}</p>
-      <p class="tagline">${tagline}</p>
-      <p class="price">${price}€/jour</p>
+      <p role="Text paragraph" class="location">${city}, ${country}</p>
+      <p role="Text paragraph" class="tagline">${tagline}</p>
+      <p role="Text paragraph" class="price">${price}€/jour</p>
     `
 
     photographerCardDOM.innerHTML = template
@@ -31,9 +31,9 @@ export function photographerFactory (photographer, medias = []) {
     photographerProfileDOM.id = 'profil-data'
 
     const template = `
-      <h2 class="name">${name}</h2>
-      <p class="location">${city}, ${country}</p>
-      <p class="tagline">${tagline}</p>
+      <h1 role="Header" class="name">${name}</h1>
+      <p role="Text" class="location">${city}, ${country}</p>
+      <p role="Text" class="tagline">${tagline}</p>
     `
 
     photographerProfileDOM.innerHTML = template
@@ -45,8 +45,8 @@ export function photographerFactory (photographer, medias = []) {
     priceWindowDOM.classList.add('price-window')
 
     const template = `
-      <span class="flex-likes-heart"><p class="likeCount">${likeCount}</p><i class="fa-solid fa-heart"></i></span>
-      <span>${price}€ / jour</span>
+      <span role="Text" class="flex-likes-heart"><p class="likeCount">${likeCount}</p><i class="fa-solid fa-heart"></i></span>
+      <span role="Text">${price}€ / jour</span>
     `
 
     priceWindowDOM.innerHTML = template

@@ -1,4 +1,3 @@
-
 export function mediaFactory (media) {
   const { id, title, image, likes, video } = media
 
@@ -8,25 +7,25 @@ export function mediaFactory (media) {
     const mediaUrl = `assets/medias/${image || video}`
 
     const pictureTemplate = `
-      <img data-id=${id} class="media-container" src="${mediaUrl}">
+      <img role="Image link" aria-label="${title}, closeup view" data-id=${id} class="media-container" src="${mediaUrl}">
       <div class="img-flex">
-        <p class="media-title">${title}</p>
+        <p role="Text" class="media-title">${title}</p>
         <span class="flex-likes">
           <p>${likes}</p>
-          <i data-id=${id} class="fa-solid fa-heart likes-heart"></i>
+          <i role="image" aria-label="likes" data-id=${id} class="fa-solid fa-heart likes-heart"></i>
         </span>
       </div>
     `
 
     const videoTemplate = `
-      <video data-id=${id} class="media-container" width="300" height="300">
+      <video role="Image link" data-id=${id} class="media-container" width="300" height="300">
         <source src="${mediaUrl}" type="video/webm">
       </video>
       <div class="img-flex">
-        <p class="media-title">${title}</p>
+        <p role="Text" class="media-title">${title}</p>
         <span class="flex-likes">
           <p>${likes}</p>
-          <i data-id=${id} class="fa-solid fa-heart likes-heart"></i>
+          <i role="image" aria-label="likes" data-id=${id} class="fa-solid fa-heart likes-heart"></i>
         </span>
       </div>
     `
@@ -44,12 +43,12 @@ export function mediaFactory (media) {
     const mediaUrl = `assets/medias/${image || video}`
 
     const pictureTemplate = `
-      <img class="carousel-media" src="${mediaUrl}" alt="">
-      <h2 class="carousel-caption">${title}</h2>`
+      <img role="image" class="carousel-media" src="${mediaUrl}" alt="${title}">
+      <h2 role="Text" class="carousel-caption">${title}</h2>`
 
     const videoTemplate = `
-      <video controls class="carousel-media" src="${mediaUrl}"></video>
-      <h2 class="carousel-caption">${title}</h2>`
+      <video role="video" aria-label="${title}" controls class="carousel-media" src="${mediaUrl}"></video>
+      <h2 role="Text" class="carousel-caption">${title}</h2>`
 
     const selectedTemplate = image ? pictureTemplate : videoTemplate
 

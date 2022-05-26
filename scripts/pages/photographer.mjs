@@ -18,8 +18,8 @@ async function displayData (photographer, medias) {
 
     likesHeart.forEach(heart => {
       heart.addEventListener('click', event => {
-        const targetId = event.target.dataset.id
-        const targetMedia = medias.find(media => media.id == targetId)
+        const targetId = parseInt(event.target.dataset.id)
+        const targetMedia = medias.find(media => media.id === targetId)
         console.log(targetMedia)
         targetMedia.likes++
         photographerModel = photographerFactory(photographer, medias)
@@ -132,26 +132,30 @@ async function displayData (photographer, medias) {
   function openCarousel (clickEvent) {
     carousel.style.display = 'flex'
     const targetElement = clickEvent.target
-    const targetMediaID = targetElement.dataset.id
-    mediaIndex = medias.findIndex(media => media.id == targetMediaID)
+    const targetMediaID = parseInt(targetElement.dataset.id)
+    mediaIndex = medias.findIndex(media => media.id === targetMediaID)
 
     showMedia(mediaIndex)
   }
+
+  document.querySelector('.contact-name').innerHTML = photographer.name
 }
 
 async function init () {
   const photographers = await getPhotographers()
   const medias = await getMedias()
+
+  // récupération de l'id dans l'url //
+
   const urlData = window.location.search
   const urlParams = new URLSearchParams(urlData)
   const params = Object.fromEntries(urlParams)
-
   const id = parseInt(params.id, 10)
-
   const photographer = photographers.find(
     photographer => photographer.id === id
   )
   const photographerMedias = medias.filter(media => media.photographerId === id)
+
   displayData(photographer, photographerMedias)
 }
 
