@@ -80,51 +80,56 @@
         <form id="modal-form">
           <div>
             <div>
-              <label role="Label" id="firstname">Nom</label>
+              <label for="firstname-id" role="Label" id="firstname-label">Nom</label>
               <input
                 role="Text field"
                 aria-label="First name"
-                aria-labelledby="firstname"
+                aria-labelledby="firstname-label"
                 placeholder="Nom"
                 name="firstname"
+                id="firstname"
                 class="firstname-input inputs"
                 type="text"
               />
               <span class="error-message"></span>
             </div>
             <div>
-              <label role="Label" id="lastname">Prénom</label>
+              <label for="lastname" role="Label" id="lastname-label">Prénom</label>
               <input
                 role="Text field"
                 aria-label="Last name"
-                aria-labelledby="lastname"
+                aria-labelledby="lastname-label"
                 placeholder="Prénom"
                 name="lastname"
+                id="lastname"
                 class="lastname-input inputs"
                 type="text"
               />
               <span class="error-message"></span>
             </div>
             <div>
-              <label role="Label" id="email">Email</label>
+              <label for="email" role="Label" id="email-label">Email</label>
               <input
                 role="Text field"
                 aria-label="Email"
-                aria-labelledby="email"
+                aria-labelledby="email-label"
                 placeholder="Email"
                 name="email"
+                id="email"
                 class="email-input inputs"
                 type="email"
+                novalidate
               />
               <span class="error-message"></span>
             </div>
             <div>
-              <label role="Label" id="message">Votre message</label>
+              <label for="message" role="Label" id="message-label">Votre message</label>
               <textarea
                 role="Text field"
                 aria-label="Your message"
-                aria-labelledby="message"
+                aria-labelledby="message-label"
                 placeholder="Votre message"
+                id="message"
                 class="message-input inputs"
               ></textarea>
               <span class="error-message"></span>
@@ -144,11 +149,11 @@
     </div>
     <aside class="price-window"></aside>
     <div role="dialog" aria-label="image closeup view" class="carousel">
-      <i
+      <em
         role="link"
         aria-label="Previous image"
         class="fa-solid fa-angle-left carousel-arrow prev-arrow"
-      ></i>
+      ></em>
       <article class="carousel-media-container">
         <img
           class="carousel-media"
@@ -157,16 +162,16 @@
         />
         <h2 class="carousel-caption">Arc-en-ciel</h2>
       </article>
-      <i
+      <em
         role="link"
         aria-label="Next image"
         class="fa-solid fa-angle-right carousel-arrow next-arrow"
-      ></i>
-      <i
+      ></em>
+      <em
         role="button"
         aria-label="Close dialog"
         class="fa-solid fa-xmark carousel-close"
-      ></i>
+      ></em>
     </div>
 
     <script src="./scripts/utils/contactForm.js"></script>
