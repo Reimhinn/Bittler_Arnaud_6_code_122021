@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
   <head>
     <link href="css/style.css" rel="stylesheet" type="text/css" />
     <meta charset="utf-8" />
@@ -38,16 +38,16 @@
         <button role="Buttons" aria-label="Contact Me" class="contact_button">
           Contactez-moi
         </button>
-        <img id="profil-image" />
+        <img role="Image" id="profil-image" alt="" />
       </header>
       <div class="filter">
-        <label role="Input label" class="filter-label" for="filter-select"
+        <label role="Input label" id="filter-label" for="filter-select"
           >Trier par</label
         >
         <select
           role="Select menu"
           aria-label="Order by"
-          aria-labelledby="fliter-select"
+          aria-labelledby="filter-label"
           class="filter-select"
         >
           <option value="Popularity">Popularité</option>
@@ -66,8 +66,8 @@
       <div class="modal">
         <header>
           <div class="flex-contact">
-            <h2 role="Heading">Contactez-moi</h2>
-            <h2 role="Heading" class="contact-name"></h2>
+            <h1 role="Heading">Contactez-moi</h2>
+            <h2 role="Heading" id="contact-name"></h2>
           </div>
           <img
             role="button"

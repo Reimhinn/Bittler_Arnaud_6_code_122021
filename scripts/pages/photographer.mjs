@@ -20,7 +20,6 @@ async function displayData (photographer, medias) {
       heart.addEventListener('click', event => {
         const targetId = parseInt(event.target.dataset.id)
         const targetMedia = medias.find(media => media.id === targetId)
-        console.log(targetMedia)
         targetMedia.likes++
         photographerModel = photographerFactory(photographer, medias)
         priceWindowDOM = photographerModel.getPriceWindowDOM()
@@ -32,8 +31,6 @@ async function displayData (photographer, medias) {
   }
 
   showMedias()
-
-  console.log(medias)
 
   let photographerModel = photographerFactory(photographer, medias)
   const photographerProfileDOM = photographerModel.getPhotographerProfileDOM()
@@ -56,7 +53,6 @@ async function displayData (photographer, medias) {
 
   function sortByDate () {
     medias.sort((a, b) => a.date.localeCompare(b.date))
-    console.log(medias)
   }
 
   filterSelect.addEventListener('change', event => {
@@ -138,7 +134,7 @@ async function displayData (photographer, medias) {
     showMedia(mediaIndex)
   }
 
-  document.querySelector('.contact-name').innerHTML = photographer.name
+  document.getElementById('contact-name').innerHTML = photographer.name
 }
 
 async function init () {
