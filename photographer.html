@@ -41,13 +41,14 @@
         <img role="Image" id="profil-image" alt="" />
       </header>
       <div class="filter">
-        <label role="Input label" id="filter-label" for="filter-select"
+        <label role="Input label" id="filter-label" for="select"
           >Trier par</label
         >
         <select
           role="Select menu"
           aria-label="Order by"
           aria-labelledby="filter-label"
+          id="select"
           class="filter-select"
         >
           <option value="Popularity">Popularité</option>
@@ -80,7 +81,7 @@
         <form id="modal-form">
           <div>
             <div>
-              <label for="firstname-id" role="Label" id="firstname-label">Nom</label>
+              <label for="firstname" role="Label" id="firstname-label">Nom</label>
               <input
                 role="Text field"
                 aria-label="First name"
