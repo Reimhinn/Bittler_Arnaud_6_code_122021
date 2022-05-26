@@ -10,7 +10,7 @@ export function photographerFactory (photographer, medias = []) {
   function getPhotographerCardDOM () {
     const photographerCardDOM = document.createElement('article')
 
-    const pictureUrl = `assets/photographers/${portrait}`
+    const pictureUrl = `./assets/photographers/${portrait}`
 
     const template = `
       <a role="link" href="./photographer.html?id=${id}">

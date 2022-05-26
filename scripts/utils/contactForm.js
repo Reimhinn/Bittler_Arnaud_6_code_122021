@@ -120,7 +120,7 @@ function setSuccess (input) {
 }
 
 function isEmail (email) {
-  return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)
+  return /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(email)
 }
 
 document.addEventListener('keydown', event => {

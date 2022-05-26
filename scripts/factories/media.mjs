@@ -4,7 +4,7 @@ export function mediaFactory (media) {
   function getMediaCardDOM () {
     const mediaCardDOM = document.createElement('article')
 
-    const mediaUrl = `assets/medias/${image || video}`
+    const mediaUrl = `./assets/medias/${image || video}`
 
     const pictureTemplate = `
       <img role="Image link" aria-label="${title}, closeup view" data-id=${id} class="media-container" src="${mediaUrl}">
@@ -40,7 +40,7 @@ export function mediaFactory (media) {
     const mediaCarouselDOM = document.createElement('div')
     mediaCarouselDOM.classList.add('carousel-media-container')
 
-    const mediaUrl = `assets/medias/${image || video}`
+    const mediaUrl = `./assets/medias/${image || video}`
 
     const pictureTemplate = `
       <img role="image" class="carousel-media" src="${mediaUrl}" alt="${title}">
