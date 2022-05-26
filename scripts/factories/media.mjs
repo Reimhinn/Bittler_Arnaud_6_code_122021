@@ -43,11 +43,11 @@ export function mediaFactory (media) {
     const mediaUrl = `./assets/medias/${image || video}`
 
     const pictureTemplate = `
-      <img role="image" class="carousel-media" src="${mediaUrl}" alt="${title}">
+      <img alt="${title}" role="image" class="carousel-media" src="${mediaUrl}" alt="${title}">
       <h2 role="Text" class="carousel-caption">${title}</h2>`
 
     const videoTemplate = `
-      <video role="video" aria-label="${title}" controls class="carousel-media" src="${mediaUrl}"></video>
+      <video alt="${title}" role="video" aria-label="${title}" controls class="carousel-media" src="${mediaUrl}"></video>
       <h2 role="Text" class="carousel-caption">${title}</h2>`
 
     const selectedTemplate = image ? pictureTemplate : videoTemplate
