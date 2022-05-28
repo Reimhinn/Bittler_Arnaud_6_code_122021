@@ -1,5 +1,0 @@
-vérifier toute la maquette :
-- mettre les arias label et alt
-
-check accessibilité
-check instructions et w3c

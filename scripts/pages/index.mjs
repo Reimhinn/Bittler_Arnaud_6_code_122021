@@ -1,10 +1,10 @@
 import { getPhotographers } from '../fetch.mjs'
 import { photographerFactory } from '../factories/photographer.mjs'
 
-// et bien retourner le tableau photographers seulement une fois
-
 async function displayData (photographers) {
   const photographersSection = document.querySelector('.photographer_section')
+
+  // Faire appraitre les photographes de façon dynamique //
 
   photographers.forEach(photographer => {
     const photographerModel = photographerFactory(photographer)
@@ -14,9 +14,7 @@ async function displayData (photographers) {
 }
 
 async function init () {
-  // Récupère les datas des photographes
   const photographers = await getPhotographers()
-  // console.log("data", photographers)
   displayData(photographers)
 }
 

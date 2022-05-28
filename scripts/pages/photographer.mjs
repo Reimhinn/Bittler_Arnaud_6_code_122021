@@ -78,7 +78,6 @@ async function displayData (photographer, medias) {
   })
 
   const carousel = document.querySelector('.carousel')
-
   const prevArrow = document.querySelector('.prev-arrow')
   const nextArrow = document.querySelector('.next-arrow')
   document.querySelector('.carousel-close').addEventListener('click', () => {
